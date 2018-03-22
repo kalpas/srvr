@@ -10,13 +10,13 @@ server = http.createServer(function(req, res) {
     }).on('end', () => {
         body = Buffer.concat(body).toString();
         console.log(body);
-        if (body){
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end('post received');
+        if (body){            
             shell.exec('~/Mipow-Playbulb-BTL201/mipow.exp night '+ body)
         }else{
             shell.exec('~/Mipow-Playbulb-BTL201/mipow.exp night toggle')
         }  
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end('post received');
     });
 });
 
