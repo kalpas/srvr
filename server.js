@@ -22,5 +22,5 @@ server = http.createServer(function(req, res) {
 
 port = 9000;
 host = '127.0.0.1';
-server.listen(port, host);
+server.listen(port);
 console.log('Listening at http://' + host + ':' + port);
