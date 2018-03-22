@@ -1,5 +1,6 @@
 http = require('http');
 fs = require('fs');
+shell = require('shelljs');
 server = http.createServer(function(req, res) {
 
     console.dir(req.param);
@@ -14,8 +15,9 @@ server = http.createServer(function(req, res) {
         req.on('end', function() {
             console.log("Body: " + body);
         });
-        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end('post received');
+        shell.exec('~/Mipow-Playbulb-BTL201/mipow.exp night color 0 255 0 0')
     }
 
 });
